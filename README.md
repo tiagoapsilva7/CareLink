@@ -9,22 +9,26 @@ communicate through built-in one-to-one chat with push notifications.
 
 ## Features
 
-- **Accounts & roles.** Email/password and Google sign-in, plus biometric
-  unlock. A single user model distinguishes patients from caregivers, each with
-  their own profile fields.
+- **Accounts & roles.** Email/password sign-up and sign-in via Firebase Auth,
+  with an optional biometric unlock gate on the login screen. A single user
+  model distinguishes patients from caregivers, each with their own profile
+  fields.
 - **Visits.** A shared calendar of appointments, daily visit lists, and visit
   reports that can schedule the next follow-up in the same form.
-- **Symptom tracking.** Patients log severity over time, charted with
-  MPAndroidChart.
+- **Symptom tracking.** Patients log symptoms with a severity rating and
+  onset date, listed newest first. Caregivers opening a patient from chat see
+  the same list read-only.
 - **Prescriptions.** Medication lists exportable to PDF via PDFBox.
-- **Medical records.** File upload and sharing through Firebase Storage, with
-  per-user unread counts.
+- **Medical records.** A single tabbed screen gathering a patient's visit
+  reports, symptoms and prescriptions. When a caregiver opens it from a chat,
+  the prescriptions tab is hidden. Unread counts are tracked per user so each
+  side sees its own badges.
+- **Profile pictures and chat media.** Images picked with ImagePicker, stored in
+  Firebase Storage and loaded with Glide.
 - **Reminders.** Medication and appointment reminders delivered by
   `AlarmManager` and exact-alarm scheduling.
 - **Chat.** Realtime one-to-one messaging on Firestore, with FCM push
   notifications.
-- **Heart-rate streaming.** Live data from Polar BLE chest straps and watches
-  via the Polar BLE SDK.
 
 ## Tech stack
 
@@ -34,11 +38,11 @@ communicate through built-in one-to-one chat with push notifications.
 | Min / target SDK | 30 / 36 |
 | Backend | Firebase Auth, Firestore, Storage, Cloud Messaging |
 | UI | Android Views (XML layouts), Material Components |
-| Charts | MPAndroidChart |
 | PDF | PDFBox for Android |
 | Images | Glide, ImagePicker |
-| BLE | Polar BLE SDK, RxJava 3 |
+| Lists | FirebaseUI (FirestoreRecyclerAdapter) |
 | Calendar | Applandeo material-calendar-view |
+| Auth | Firebase Auth (email/password), AndroidX Biometric |
 
 ## Project layout
 
@@ -77,8 +81,8 @@ repository**:
 
 **`app/google-services.json`**: download it from the Firebase console
 (Project settings → Your apps → Android) after registering an app with the
-application id `com.example.carelink`. Enable Authentication (Email/Password
-and Google), Firestore, Storage and Cloud Messaging.
+application id `com.example.carelink`. Enable Authentication (Email/Password),
+Firestore, Storage and Cloud Messaging.
 
 **A service-account key in `app/src/main/assets/`**: generate one under
 Project settings → Service accounts → *Generate new private key*, then:
@@ -104,21 +108,32 @@ expected shape.
 
 ### 3. Run
 
-Select a device running API 30+ and run the `app` configuration. Heart-rate
-streaming needs a physical device with Bluetooth and a Polar strap; everything
-else works on an emulator.
+Select a device running API 30+ and run the `app` configuration. An emulator
+is fine; biometric unlock needs either a physical device or an emulator with a
+fingerprint enrolled.
 
 ## Permissions
 
-`POST_NOTIFICATIONS` for push, `BLUETOOTH_SCAN` / `BLUETOOTH_CONNECT` plus
-location for BLE device discovery (an Android requirement for scanning),
-`SCHEDULE_EXACT_ALARM` / `USE_EXACT_ALARM` for reminders, and
-`FOREGROUND_SERVICE_CONNECTED_DEVICE` to keep sensor streaming alive.
+In active use: `POST_NOTIFICATIONS` for push notifications, and
+`SCHEDULE_EXACT_ALARM` / `USE_EXACT_ALARM` for the reminder alarms.
+
+The manifest also declares `BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`,
+`ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`, `FOREGROUND_SERVICE` and
+`FOREGROUND_SERVICE_CONNECTED_DEVICE`. Nothing in the code uses these yet; they
+are leftovers from planned BLE sensor support (see Status).
 
 ## Status
 
 Actively evolving. Known rough edges:
 
 - Notification sending should move server-side (see the warning above).
+- Several dependencies are declared in `app/build.gradle.kts` but never
+  referenced by any code, and should either be removed or their features
+  finished:
+  - Polar BLE SDK, RxJava and RxAndroid, plus MPAndroidChart, from a planned
+    heart-rate sensor feature. The Bluetooth and location permissions in the
+    manifest are leftovers from the same effort.
+  - Credential Manager and the Google identity library, from a planned Google
+    sign-in flow.
 - `isMinifyEnabled` is off for release builds; no signing config is committed.
 - Test coverage is minimal.

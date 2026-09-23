@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * A symptom logged by a patient, stored in the Firestore {@code symptoms}
- * collection. Severity values drive the chart shown in SymptomsFragment.
+ * collection and listed by SymptomsFragment.
  *
  * The no-argument constructor and public getters/setters are required by
  * Firestore's automatic POJO deserialisation; do not remove them.
