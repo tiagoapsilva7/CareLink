@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/buttons"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="48dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:padding="4dp"
+            android:src="@drawable/back"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvSympTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Symptom Details"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:padding="6dp"
+            android:src="@drawable/chat_icon"
+            app:tint="@color/white"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="32dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Onset Date" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Duration" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_duration" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Location" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_location" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Nature" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_nature" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Progression" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_prog" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Pain Level (1-10)" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_pain" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_view_secondary_symptoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Associated Secondary Symptoms" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+                <LinearLayout
+                    android:id="@+id/ll_sec_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Other Information" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_symp_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:minHeight="80dp" android:padding="16dp" android:textColor="@color/black" android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

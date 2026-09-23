@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.CareLink" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorOnSurface">@color/buttons</item>
+        <item name="colorPrimary">@color/buttons</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorControlActivated">@color/buttons</item>
+
+        <item name="popupMenuStyle">@style/CustomPopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/CustomPopupText</item>
+        <item name="textAppearanceSmallPopupMenu">@style/CustomPopupText</item>
+    </style>
+
+    <style name="CustomPopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@android:color/white</item>
+    </style>
+
+    <style name="CustomPopupText" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/buttons</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.CareLink" parent="Base.Theme.CareLink" />
+
+    <style name="WhiteCheckTheme" parent="ThemeOverlay.Material3.Light">
+        <item name="colorPrimary">@color/buttons</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/buttons</item>
+    </style>
+
+    <style name="PopupMenuLight" parent="Theme.Material3.Light.NoActionBar">
+        <item name="popupMenuStyle">@style/WhitePopupBackground</item>
+    </style>
+
+    <style name="WhitePopupBackground" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@android:color/white</item>
+    </style>
+    <style name="BottomNavTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

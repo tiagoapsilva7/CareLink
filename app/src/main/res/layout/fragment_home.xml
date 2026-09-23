@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/carelink_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fl_evo"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@id/fl_medical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <Button
+            android:id="@+id/myEvo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_buttons"
+            android:backgroundTint="@color/buttons"
+            android:elevation="2dp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="80dp"
+            android:text="Scheduled visits"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/gallery_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="20dp"
+            android:elevation="3dp"
+            android:src="@drawable/calendar2"
+            app:tint="@color/white" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_medical"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_evo">
+
+        <Button
+            android:id="@+id/medicalRecords"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_buttons"
+            android:backgroundTint="@color/buttons"
+            android:elevation="2dp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="80dp"
+            android:text="Medical records"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/medical_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="20dp"
+            android:elevation="3dp"
+            android:src="@drawable/medical"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_medical_badge"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_circle_badge"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="3" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

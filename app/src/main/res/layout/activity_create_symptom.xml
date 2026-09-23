@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:padding="4dp"
+            android:src="@drawable/back"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvMainTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Log a New Symptom"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginEnd="56dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="e.g. Sharp pain in lower back" android:maxLength="35" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Onset of symptom:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="DD/MM/YYYY" android:inputType="date" android:maxLength="10" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Duration of symptom:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_duration" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="e.g. 3 days, 2 hours" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Location:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_location" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="e.g. Lower back, left side" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Is the symptom...?" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <CheckBox android:id="@+id/cb_constant" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Constant" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+            <CheckBox android:id="@+id/cb_comes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Comes and goes" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="How is it progressing?" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <CheckBox android:id="@+id/cb_worse" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Getting worse" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+            <CheckBox android:id="@+id/cb_same" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Staying the same" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+            <CheckBox android:id="@+id/cb_better" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Getting better" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Evaluate the pain from 1 to 10:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="4dp">
+                <EditText android:id="@+id/et_pain" android:layout_width="60dp" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:gravity="center" android:hint="-" android:inputType="number" android:textColorHint="#757575" android:textColor="@color/black"/>
+                <CheckBox android:id="@+id/cb_pain_na" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Not Applicable" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Associated Secondary Symptoms:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="24dp"/>
+
+            <LinearLayout
+                android:id="@+id/ll_secondary_symptoms_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="4dp"/>
+
+            <ImageView
+                android:id="@+id/btn_add_secondary"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/white_circle"
+                android:backgroundTint="@color/buttons"
+                android:padding="12dp"
+                android:src="@drawable/add"
+                app:tint="#FFFFFF" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Other relevant information:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_other" android:layout_width="match_parent" android:layout_height="100dp" android:gravity="top|start" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="Any other details..." android:inputType="textMultiLine" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <Button android:id="@+id/btn_save_symptom" android:layout_width="match_parent" android:layout_height="55dp" android:layout_marginTop="32dp" android:backgroundTint="@color/buttons" android:text="Save Symptom" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:alpha="0.5" android:enabled="false" app:cornerRadius="20dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

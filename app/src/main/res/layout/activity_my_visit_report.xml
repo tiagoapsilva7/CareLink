@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/buttons"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="48dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:padding="4dp"
+            android:src="@drawable/back"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvApptTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Visit Report Details"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:padding="6dp"
+            android:src="@drawable/chat_icon"
+            app:tint="@color/white"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:padding="25dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="32dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date &amp; Hours" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_report_date_time" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="16sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Patient Complaints" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_report_complaints" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:minHeight="80dp" android:padding="16dp" android:textColor="@color/black" android:textSize="15sp" />
+
+            <TextView android:id="@+id/tv_label_report" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Report (Private)" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" android:visibility="gone"/>
+            <TextView android:id="@+id/tv_report_private" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:minHeight="100dp" android:padding="16dp" android:textColor="@color/black" android:textSize="15sp" android:visibility="gone"/>
+
+            <TextView android:id="@+id/tv_label_therapeutic_plan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Therapeutic Plan (Private)" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" android:visibility="gone"/>
+            <TextView android:id="@+id/tv_report_plan" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:minHeight="80dp" android:padding="16dp" android:textColor="@color/black" android:textSize="15sp" android:visibility="gone"/>
+
+            <TextView android:id="@+id/tv_label_recommendations" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Recommendations" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_report_recommendations" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:minHeight="80dp" android:padding="16dp" android:textColor="@color/black" android:textSize="15sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Future Visit Scheduled?" android:textColor="@color/buttons" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_report_future" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_input_field" android:padding="16dp" android:textColor="@color/black" android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

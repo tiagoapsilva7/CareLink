@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title = "Home"
+        android:icon = "@drawable/home"
+        android:id = "@+id/menu_home"
+        android:iconTint="@color/buttons"
+        />
+    <item android:title = "Profile"
+        android:icon = "@drawable/profile"
+        android:id = "@+id/menu_profile"
+        />
+    <item android:title = "Chat"
+        android:icon = "@drawable/chat_icon"
+        android:id = "@+id/menu_chat"
+        />
+
+
+</menu>

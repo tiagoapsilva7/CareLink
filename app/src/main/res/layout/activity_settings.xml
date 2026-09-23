@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+    android:background="@color/bg_color">
+
+    <!-- Sound Setting -->
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/carelink_logo" />
+
+    <TextView
+        android:id="@+id/sound_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sound Settings"
+        android:textColor="@color/bars_color"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <Switch
+        android:id="@+id/sound_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Sound"
+        android:textColor="@color/black"
+        android:thumbTint="@color/buttons"
+        android:trackTint="@color/buttons"
+        android:layout_marginTop="8dp"
+        android:checked="true"
+        android:gravity="center"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <!-- Dark Mode / Day Mode Toggle -->
+    <TextView
+        android:id="@+id/theme_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Theme Settings"
+        android:textColor="@color/bars_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="24dp"/>
+
+    <Switch
+        android:id="@+id/theme_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:thumbTint="@color/buttons"
+        android:trackTint="@color/buttons"
+        android:gravity="center"
+        android:text="Enable Dark Mode"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:checked="false"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+</LinearLayout>

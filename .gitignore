@@ -1,0 +1,44 @@
+# Build output
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.aab
+
+# Gradle
+.gradle/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.DS_Store
+
+# SECRETS: never commit these.
+#
+# The Firebase Admin SDK service-account key grants full administrative
+# access to the Firebase project. See README.md ("Firebase setup") for how
+# to supply your own copy locally.
+**/*-firebase-adminsdk-*.json
+**/pulsetrackr*.json
+*.jks
+*.keystore
+*.p12
+*.pem
+secrets.properties
+keystore.properties
+
+# Firebase client config. Not strictly secret (it is shipped inside the APK),
+# but kept out of the repository so the project's quota and Firestore rules are
+# not exposed to arbitrary clients. See README.md ("Firebase setup").
+google-services.json
+
+# Stray duplicate of the service-account key; the app reads the copy in
+# app/src/main/assets/ instead, so nothing here is part of the build.
+/app/assets/
+
+# Stale nested project copy (build artefacts plus unrelated credentials only,
+# no source). Kept on disk for now, excluded from version control.
+/CareLink/

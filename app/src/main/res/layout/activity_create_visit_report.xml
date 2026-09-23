@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:padding="4dp"
+            android:src="@drawable/back"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New Visit Report"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginEnd="56dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Scheduled Visit:"
+                android:textColor="@color/buttons"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_visits"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_field"
+                android:spinnerMode="dropdown"
+                android:popupBackground="#FFFFFF"
+                android:layout_marginTop="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date:" android:textColor="@color/buttons" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tv_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:text="--/--/----" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hours:" android:textColor="@color/buttons" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tv_hours" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input_field" android:padding="12dp" android:text="--:-- - --:--" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Patient Complaints:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_complaints" android:layout_width="match_parent" android:layout_height="100dp" android:gravity="top|start" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="Describe the patient's complaints..." android:inputType="textMultiLine" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Report (Private &amp; Optional):" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_report" android:layout_width="match_parent" android:layout_height="100dp" android:gravity="top|start" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="Detailed observation report..." android:inputType="textMultiLine" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Therapeutic Plan (Private &amp; Optional):" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_therapeutic_plan" android:layout_width="match_parent" android:layout_height="100dp" android:gravity="top|start" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="Technical therapeutic plan..." android:inputType="textMultiLine" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Recommendations:" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <EditText android:id="@+id/et_recommendations" android:layout_width="match_parent" android:layout_height="100dp" android:gravity="top|start" android:background="@drawable/bg_input_field" android:padding="12dp" android:hint="Prescriptions, rest, diet..." android:inputType="textMultiLine" android:textColorHint="#757575" android:textColor="@color/black" android:layout_marginTop="4dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Schedule a Future Visit?" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <CheckBox android:id="@+id/cb_fut_no" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+            <CheckBox android:id="@+id/cb_fut_yes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yes" android:textColor="@color/black" android:theme="@style/WhiteCheckTheme"/>
+
+            <LinearLayout
+                android:id="@+id/ll_fut_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                android:padding="16dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date (DD/MM/YYYY):" android:textColor="@color/buttons" android:textStyle="bold"/>
+                <EditText android:id="@+id/et_fut_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/underline_edittext" android:padding="8dp" android:hint="DD/MM/YYYY" android:inputType="date" android:maxLength="10" android:textColorHint="#757575" android:textColor="@color/black"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arrival Time (HH:MM):" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="12dp"/>
+                <EditText android:id="@+id/et_fut_arrival" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/underline_edittext" android:padding="8dp" android:hint="HH:MM" android:inputType="number" android:maxLength="5" android:textColorHint="#757575" android:textColor="@color/black"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Departure Time (HH:MM):" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="12dp"/>
+                <EditText android:id="@+id/et_fut_departure" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/underline_edittext" android:padding="8dp" android:hint="HH:MM" android:inputType="number" android:maxLength="5" android:textColorHint="#757575" android:textColor="@color/black"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notes (Optional):" android:textColor="@color/buttons" android:textStyle="bold" android:layout_marginTop="12dp"/>
+                <EditText android:id="@+id/et_fut_notes" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/underline_edittext" android:padding="8dp" android:hint="Optional notes..." android:inputType="textMultiLine" android:textColorHint="#757575" android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_save_report"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/buttons"
+                android:text="Save Report"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:alpha="0.5"
+                android:enabled="false"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

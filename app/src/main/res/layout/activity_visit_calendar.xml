@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingBottom="45dp"
+    android:background="@color/bg_color"
+    android:id="@+id/main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/buttons"
+            android:paddingTop="48dp"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:padding="4dp"
+                android:src="@drawable/back"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tvMainTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Scheduled visits"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginEnd="56dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:type="one_day_picker"
+                app:headerColor="@color/buttons"
+                app:selectionLabelColor="@color/white"
+                app:todayLabelColor="@color/buttons"
+                app:selectionColor="@color/buttons"
+                app:daysLabelsColor="@color/buttons"
+                app:abbreviationsLabelsColor="@color/buttons"
+                app:eventsEnabled="true"/>
+
+            <Button
+                android:id="@+id/btn_see_all_my_visits"
+                android:layout_width="240dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center_horizontal"
+                android:text="See all visits"
+                android:textSize="18sp"
+                android:backgroundTint="@color/buttons"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_report_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_input_field"
+            android:elevation="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_report_panel_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scheduled visits"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/buttons"
+                android:paddingBottom="12dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_report_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_schedule_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bg_input_field"
+            android:elevation="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Schedule a New Visit"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/buttons"
+                android:paddingBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_arrival_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Arrival Time (HH:MM)"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#555555"
+                    android:background="@drawable/underline_edittext"
+                    android:paddingHorizontal="4dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <EditText
+                    android:id="@+id/et_departure_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Departure Time (HH:MM)"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#555555"
+                    android:background="@drawable/underline_edittext"
+                    android:paddingHorizontal="4dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <EditText
+                    android:id="@+id/et_visit_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Notes (Optional)"
+                    android:inputType="textMultiLine"
+                    android:minLines="2"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#555555"
+                    android:background="@drawable/underline_edittext"
+                    android:paddingHorizontal="4dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_book_visit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule Visit"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/main_buttons"
+                    android:backgroundTint="@color/buttons" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
