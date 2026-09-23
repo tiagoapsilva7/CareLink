@@ -114,26 +114,35 @@ fingerprint enrolled.
 
 ## Permissions
 
-In active use: `POST_NOTIFICATIONS` for push notifications, and
-`SCHEDULE_EXACT_ALARM` / `USE_EXACT_ALARM` for the reminder alarms.
+The app declares three permissions, all of them used:
 
-The manifest also declares `BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`,
-`ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`, `FOREGROUND_SERVICE` and
-`FOREGROUND_SERVICE_CONNECTED_DEVICE`. Nothing in the code uses these yet; they
-are leftovers from planned BLE sensor support (see Status).
+| Permission | Why |
+|---|---|
+| `POST_NOTIFICATIONS` | chat and reminder notifications |
+| `SCHEDULE_EXACT_ALARM` | reminder alarms below API 33 |
+| `USE_EXACT_ALARM` | reminder alarms on API 33 and above |
+
+Dependencies contribute a few more to the merged manifest, notably `INTERNET`,
+`ACCESS_NETWORK_STATE` and `WAKE_LOCK` from Firebase Cloud Messaging and
+`USE_BIOMETRIC` from AndroidX Biometric.
 
 ## Status
 
 Actively evolving. Known rough edges:
 
 - Notification sending should move server-side (see the warning above).
-- Several dependencies are declared in `app/build.gradle.kts` but never
-  referenced by any code, and should either be removed or their features
-  finished:
-  - Polar BLE SDK, RxJava and RxAndroid, plus MPAndroidChart, from a planned
-    heart-rate sensor feature. The Bluetooth and location permissions in the
-    manifest are leftovers from the same effort.
-  - Credential Manager and the Google identity library, from a planned Google
-    sign-in flow.
-- `isMinifyEnabled` is off for release builds; no signing config is committed.
-- Test coverage is minimal.
+- `isMinifyEnabled` is off for release builds, and no signing config is
+  committed, so release builds come out unsigned.
+- There are no unit or instrumentation tests yet; `app/src/test` and
+  `app/src/androidTest` are empty.
+
+Two earlier features were scoped but never built, and their dependencies have
+now been dropped from `app/build.gradle.kts`:
+
+- **BLE heart-rate sensors.** The Polar BLE SDK and MPAndroidChart are gone
+  from the build, along with the Bluetooth, location and foreground-service
+  permissions they needed. RxJava is still in the APK, but only because
+  FirebaseUI pulls it in transitively.
+- **Google sign-in.** Credential Manager and the Google identity library are no
+  longer declared directly. They remain in the APK regardless, since
+  `firebase-auth` depends on them.
